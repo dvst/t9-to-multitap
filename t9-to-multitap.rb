@@ -11,3 +11,19 @@ keyboard = { 1 => [1],
     9 => %w[ w x y z ],
     0 => [" "]
 }
+
+word = 'github dvst'
+keyboard_numeric = Array.new
+keyboard_multitap = Array.new
+
+word.each_char do |chr|
+  keyboard.each do |number,letters|
+    if letters.include? chr
+      keyboard_numeric.push(number)
+      keyboard_multitap.push(letters[0])
+    end
+  end
+end
+
+print keyboard_numeric.to_s + "\n"
+print keyboard_multitap.to_s + "\n"
