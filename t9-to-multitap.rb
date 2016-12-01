@@ -19,8 +19,15 @@ keyboard_multitap = Array.new
 word.each_char do |chr|
   keyboard.each do |number,letters|
     if letters.include? chr
+
       keyboard_numeric.push(number)
-      keyboard_multitap.push(letters[0])
+
+      if keyboard_multitap[-1] == letters[0]
+        keyboard_multitap[-1] = letters[1]
+      else
+        keyboard_multitap.push(letters[0])
+      end
+
     end
   end
 end
